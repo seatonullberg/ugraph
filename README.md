@@ -1,2 +1,2 @@
 # ugraph
-An undirected graph implementation in C89
+C89 undirected graph implementation
