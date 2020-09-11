@@ -24,3 +24,28 @@ void ugraph_add_vertex(ugraph_t* graph, void* data) {
 size_t ugraph_vcount(ugraph_t* graph) {
     return cvector_size(graph->vertices);
 }
+
+void ugraph_add_edge(ugraph_t* graph, size_t u, size_t v, void* data) {
+    // connect u to v
+    ugraph_edge_t* uedge = malloc(sizeof(ugraph_edge_t));
+    uedge->data = data;
+    uedge->vindex = v;
+    // connect v to u
+    ugraph_edge_t* vedge = malloc(sizeof(ugraph_edge_t));
+    vedge->data = data;
+    vedge->vindex = u;
+
+    cvector_push_back(graph->vertices[u]->edges, uedge);
+    cvector_push_back(graph->vertices[v]->edges, vedge);
+}
+
+size_t ugraph_ecount(ugraph_t* graph) {
+    size_t ne = 0;
+
+    size_t i;
+    size_t nv = ugraph_vcount(graph);
+    for (i = 0; i < nv; i++) {
+        ne += cvector_size(graph->vertices[i]->edges);
+    }
+    return ne / 2;
+}

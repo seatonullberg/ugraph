@@ -26,7 +26,7 @@ struct ugraph_vertex_t {
 /// Edge type
 struct ugraph_edge_t {
     void* data;
-    ugraph_vertex_t* vertex;
+    size_t vindex;
 };
 
 /// Graph type
@@ -41,7 +41,7 @@ ugraph_t* ugraph_create();
 void ugraph_destroy(ugraph_t* graph);
 
 /// Adds an edge between vertices `u` and `v`
-void ugraph_add_edge(ugraph_t* graph, size_t u, size_t v);
+void ugraph_add_edge(ugraph_t* graph, size_t u, size_t v, void* data);
 
 /// Removes the edge between vertices `u` and `v`
 void ugraph_remove_edge(ugraph_t* graph, size_t u, size_t v);
