@@ -8,22 +8,27 @@
 
 #include "arraylist.h"
 
+/* forward declarations */
+typedef struct ugraph_edge_t ugraph_edge_t;
+typedef struct ugraph_vertex_t ugraph_vertex_t;
+typedef struct ugraph_t ugraph_t;
+
 /** Edge between vertices in a graph. */
-typedef struct {
+struct ugraph_edge_t {
   void* data;
-  size_t vindex;
-} ugraph_edge_t;
+  size_t endpoint;
+};
 
 /** Vertex in a graph. */
-typedef struct {
+struct ugraph_vertex_t {
   void* data;
   ArrayList* edges;
-} ugraph_vertex_t;
+};
 
 /** Undirected graph type. */
-typedef struct {
+struct ugraph_t {
   ArrayList* vertices;
-} ugraph_t;
+};
 
 /** Returns an empty graph. */
 ugraph_t* ugraph_new();
