@@ -6,23 +6,11 @@
 #include "cvector.h"
 #include "ugraph.h"
 
-ugraph_t* ugraph_create() {
+ugraph_t* ugraph_new() {
     cvector_vector_type(ugraph_vertex_t*) v = NULL;
     ugraph_t* graph = malloc(sizeof(ugraph_t));
     graph->vertices = v;
     return graph;
-}
-
-void ugraph_add_vertex(ugraph_t* graph, void* data) {
-    ugraph_vertex_t* vertex = malloc(sizeof(ugraph_vertex_t));
-    vertex->data = data;
-    cvector_vector_type(ugraph_edge_t*) e = NULL;
-    vertex->edges = e;
-    cvector_push_back(graph->vertices, vertex);
-}
-
-size_t ugraph_vcount(ugraph_t* graph) {
-    return cvector_size(graph->vertices);
 }
 
 void ugraph_add_edge(ugraph_t* graph, size_t u, size_t v, void* data) {
@@ -39,6 +27,14 @@ void ugraph_add_edge(ugraph_t* graph, size_t u, size_t v, void* data) {
     cvector_push_back(graph->vertices[v]->edges, vedge);
 }
 
+void ugraph_add_vertex(ugraph_t* graph, void* data) {
+    ugraph_vertex_t* vertex = malloc(sizeof(ugraph_vertex_t));
+    vertex->data = data;
+    cvector_vector_type(ugraph_edge_t*) e = NULL;
+    vertex->edges = e;
+    cvector_push_back(graph->vertices, vertex);
+}
+
 size_t ugraph_ecount(ugraph_t* graph) {
     size_t ne = 0;
 
@@ -48,4 +44,8 @@ size_t ugraph_ecount(ugraph_t* graph) {
         ne += cvector_size(graph->vertices[i]->edges);
     }
     return ne / 2;
+}
+
+size_t ugraph_vcount(ugraph_t* graph) {
+    return cvector_size(graph->vertices);
 }
