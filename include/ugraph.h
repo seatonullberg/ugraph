@@ -16,7 +16,7 @@ typedef struct ugraph_t ugraph_t;
 /** Edge between vertices in a graph. */
 struct ugraph_edge_t {
   void* data;
-  size_t endpoint;
+  ugraph_vertex_t* endpoint;
 };
 
 /** Vertex in a graph. */
