@@ -4,27 +4,25 @@
 #ifndef UGRAPH_H
 #define UGRAPH_H
 
-#define CVECTOR_LOGARITHMIC_GROWTH
-
 #include <stddef.h> /* size_t */
 
-#include "cvector.h"
+#include "arraylist.h"
 
-/** Edge type between vertices with generic data. */
+/** Edge between vertices in a graph. */
 typedef struct {
-    void* data;
-    size_t vindex;
+  void* data;
+  size_t vindex;
 } ugraph_edge_t;
 
-/** Vertex type with generic data. */
+/** Vertex in a graph. */
 typedef struct {
-    void* data;
-    cvector_vector_type(ugraph_edge_t*) edges;
+  void* data;
+  ArrayList* edges;
 } ugraph_vertex_t;
 
 /** Undirected graph type. */
 typedef struct {
-    cvector_vector_type(ugraph_vertex_t*) vertices;
+  ArrayList* vertices;
 } ugraph_t;
 
 /** Returns an empty graph. */
