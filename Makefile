@@ -1,5 +1,10 @@
 INCLUDE=-Iinclude -Iexternal/c-algorithms/src
 
+bench:
+	mkdir -p bin
+	gcc $(INCLUDE) -Ibenches/include -lm -o bin/ugraph-benchmarks external/c-algorithms/src/*.c src/*.c benches/*.c
+	./bin/ugraph-benchmarks
+
 clean:
 	rm -rf bin
 
