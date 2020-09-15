@@ -1,1 +1,4 @@
 
+[submodule "external/c-algorithms"]
+	path = external/c-algorithms
+	url = https://github.com/seatonullberg/c-algorithms.git
