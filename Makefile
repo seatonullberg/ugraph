@@ -1,5 +1,5 @@
-INCLUDE=-Iinclude -Iexternal/c-algorithms/src
-SRC=external/c-algorithms/src/*.c src/*.c
+INCLUDE=-Iinclude
+SRC=src/*.c
 
 bench:
 	mkdir -p bin
