@@ -56,3 +56,6 @@ bin/
 
 # VS Code
 .vscode/
+
+# Meson build directories
+build-*

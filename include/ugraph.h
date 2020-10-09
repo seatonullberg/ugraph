@@ -27,8 +27,8 @@ SOFTWARE.
 
 #include <stddef.h> /* size_t */
 
-#include "arraylist.h"
-#include "hash-table.h"
+#include <calg/arraylist.h>
+#include <calg/hash-table.h>
 
 /* forward declarations */
 typedef struct ugraph_vertex_t ugraph_vertex_t;

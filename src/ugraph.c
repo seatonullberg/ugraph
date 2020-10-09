@@ -27,10 +27,10 @@ SOFTWARE.
 #include <stddef.h> /* size_t */
 #include <stdlib.h> /* malloc */
 
-#include "arraylist.h"
-#include "compare-pointer.h"
-#include "hash-pointer.h"
-#include "hash-table.h"
+#include <calg/arraylist.h>
+#include <calg/compare-pointer.h>
+#include <calg/hash-pointer.h>
+#include <calg/hash-table.h>
 
 ugraph_t* ugraph_new() {
   ugraph_t* graph = malloc(sizeof(ugraph_t));
