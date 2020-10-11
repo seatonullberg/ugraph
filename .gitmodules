@@ -1,1 +1,4 @@
 
+[submodule "subprojects/calg"]
+	path = subprojects/calg
+	url = https://github.com/seatonullberg/calg
