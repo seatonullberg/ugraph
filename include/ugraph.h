@@ -51,23 +51,23 @@ ugraph_t* ugraph_new();
 /** Frees a graph's memory. */
 void ugraph_free(ugraph_t* graph);
 
-/** Adds an edge between vertices `u` and `v`. */
-void ugraph_add_edge(ugraph_t* graph, size_t u, size_t v, void* data);
+/** inserts an edge between vertices `u` and `v`. */
+void ugraph_insert_edge(ugraph_t* graph, size_t u, size_t v, void* data);
 
 /** Removes the edge between vertices `u` and `v`. */
 void ugraph_remove_edge(ugraph_t* graph, size_t u, size_t v);
 
 /** Returns the data associated with the edge between vertices `u` and `v`. */
-void* ugraph_edge_data(ugraph_t* graph, size_t u, size_t v);
+void* ugraph_get_edge_data(ugraph_t* graph, size_t u, size_t v);
 
-/** Adds a vertex. */
-void ugraph_add_vertex(ugraph_t* graph, void* data);
+/** Insertss a vertex. */
+void ugraph_insert_vertex(ugraph_t* graph, void* data);
 
 /** Removes vertex `v`. */
 void ugraph_remove_vertex(ugraph_t* graph, size_t v);
 
 /** Return the data associated with vertex `v`. */
-void* ugraph_vertex_data(ugraph_t* graph, size_t v);
+void* ugraph_get_vertex_data(ugraph_t* graph, size_t v);
 
 /** Returns the number of edges in a graph. */
 size_t ugraph_ecount(ugraph_t* graph);

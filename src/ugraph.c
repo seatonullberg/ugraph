@@ -58,7 +58,7 @@ void ugraph_free(ugraph_t* graph) {
   free(graph);
 }
 
-void ugraph_add_edge(ugraph_t* graph, size_t u, size_t v, void* data) {
+void ugraph_insert_edge(ugraph_t* graph, size_t u, size_t v, void* data) {
   ugraph_vertex_t* uvertex;
   ugraph_vertex_t* vvertex;
 
@@ -88,7 +88,7 @@ void ugraph_remove_edge(ugraph_t* graph, size_t u, size_t v) {
   hash_table_remove(vvertex->edges, uvertex);
 }
 
-void* ugraph_edge_data(ugraph_t* graph, size_t u, size_t v) {
+void* ugraph_get_edge_data(ugraph_t* graph, size_t u, size_t v) {
   ugraph_vertex_t* uvertex;
   ugraph_vertex_t* vvertex;
 
@@ -99,7 +99,7 @@ void* ugraph_edge_data(ugraph_t* graph, size_t u, size_t v) {
   return hash_table_lookup(uvertex->edges, vvertex);
 }
 
-void ugraph_add_vertex(ugraph_t* graph, void* data) {
+void ugraph_insert_vertex(ugraph_t* graph, void* data) {
   ugraph_vertex_t* vertex = malloc(sizeof(ugraph_vertex_t));
   vertex->data = data;
   vertex->edges = hash_table_new(pointer_hash, pointer_equal);
@@ -123,7 +123,7 @@ void ugraph_remove_vertex(ugraph_t* graph, size_t v) {
   }
 }
 
-void* ugraph_vertex_data(ugraph_t* graph, size_t v) {
+void* ugraph_get_vertex_data(ugraph_t* graph, size_t v) {
   ugraph_vertex_t* vertex;
   vertex = (ugraph_vertex_t*)graph->vertices->data[v];
   return vertex->data;
